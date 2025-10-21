@@ -29,27 +29,40 @@ async function initDB() {
   }
 }
 
-
-app.post("/api/transcations", async (req,res)=>{
-
+app.post("/api/transcations", async (req, res) => {
   //title, amount, category, user_id
   try {
-      const {title,amount,category,user_id}=req.body;
-      if(!title || !category || !user_id || amount===undefined)
-      {
-        return res.status(400).json({message:"All Fields are required"});
-      }
+    const { title, amount, category, user_id } = req.body;
+    if (!title || !category || !user_id || amount === undefined) {
+      return res.status(400).json({ message: "All Fields are required" });
+    }
 
-     const transaction = await sql` INSERT INTO transcations(user_id,title,amount,category)
+    const transaction =
+      await sql` INSERT INTO transcations(user_id,title,amount,category)
       VALUES (${user_id},${title},${amount},${category}) 
       RETURNING *
       `;
-      console.log(transaction);
-      res.status(201).json(transaction[0]);
-
+    console.log(transaction);
+    res.status(201).json(transaction[0]);
   } catch (error) {
-    console.log("Error Creating the transaction",error);
-    res.status(500).json({message: "Internel Server Error"})
+    console.log("Error Creating the transaction", error);
+    res.status(500).json({ message: "Internel Server Error" });
+  }
+});
+
+//Get Request
+app.get("/api/transcations/:user_Id", async (req, res) => {
+  try {
+    const {user_Id} =req.params;
+    console.log(user_Id);
+ 
+     const transactions= await sql` Select * From transcations where user_id= ${user_Id} 
+     ORDER BY created_at DESC `;
+
+     res.status(200).json(transactions)
+  } catch (error) {
+    console.log("Error getting the transaction", error);
+    res.status(500).json({ message: "Internel Server Error" });
   }
 });
 
