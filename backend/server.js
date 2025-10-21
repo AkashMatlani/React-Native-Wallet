@@ -53,15 +53,32 @@ app.post("/api/transcations", async (req, res) => {
 //Get Request
 app.get("/api/transcations/:user_Id", async (req, res) => {
   try {
-    const {user_Id} =req.params;
+    const { user_Id } = req.params;
     console.log(user_Id);
- 
-     const transactions= await sql` Select * From transcations where user_id= ${user_Id} 
+
+    const transactions =
+      await sql` Select * From transcations where user_id= ${user_Id} 
      ORDER BY created_at DESC `;
 
-     res.status(200).json(transactions)
+    res.status(200).json(transactions);
   } catch (error) {
     console.log("Error getting the transaction", error);
+    res.status(500).json({ message: "Internel Server Error" });
+  }
+});
+
+//Delete  Request
+app.delete("/api/transcations/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const transactions =
+      await sql` Delete From transcations where id= ${id}  RETURNING *`;
+    if (transactions.length === 0) {
+      return res.status(400).json({ message: "Transcations not found" });
+    }
+    res.status(200).json({ message: "Transcation deleted Successfully" });
+  } catch (error) {
+    console.log("Error deletig the transaction", error);
     res.status(500).json({ message: "Internel Server Error" });
   }
 });
