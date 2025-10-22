@@ -12,6 +12,7 @@ This isn’t just a front-end app — it’s a complete mobile application with 
 
 
 App Features Overview
+
 🔐 Authentication with email verification using Clerk
 📝 Signup & Login flows with 6-digit email code
 🏠 Home Screen showing current balance & past transactions
@@ -21,6 +22,7 @@ App Features Overview
 🚪 Logout and return to the login screen
 
 What You’ll Learn
+
 ⚙️ Build and deploy an Express API with PostgreSQL (Neon)
 🔐 Implement authentication & email verification with Clerk
 📲 Build a full mobile app using React Native & Expo
@@ -28,6 +30,7 @@ What You’ll Learn
 🛡️ Apply Rate Limiting using Redis
 
 .env Setup
+
 ⚙️ Backend (/backend)
 PORT=5001
 NODE_ENV=development
@@ -40,20 +43,24 @@ DATABASE_URL=<your_neon_postgres_connection_url>
 REDIS_URL=<your_redis_connection_url>
 
 ⚙️ Mobile (/mobile)
+
 EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=<your_clerk_key>
 
 🚀 Run the Project
+
 🖥️ Backend
 cd backend
 npm install
 npm run dev
 
 📱 Mobile App
+
 cd mobile
 npm install
 npx expo start
 
 🧩 Tech Stack
+
 Frontend: React Native (Expo), React Navigation
 Backend: Node.js, Express, PostgreSQL (Neon)
 Auth: Clerk (Email Verification)
@@ -61,6 +68,7 @@ Cache / Rate Limiting: Redis
 Deployment: Cloud-based (Vercel, Neon, Expo)
 
 💡 Notes
+
 You can use either a simulator or a real device via Expo Go.
 Don’t forget to configure your Clerk and Neon credentials properly.
 This project is ideal for full-stack mobile development with modern tooling.
