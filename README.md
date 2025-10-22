@@ -1,7 +1,7 @@
 💸 Wallet - Expense Tracker (React Native + Express) 
 
 A full-stack mobile wallet app built with React Native, Express, PostgreSQL, and Clerk authentication.
-Track income and expenses seamlessly — complete with backend, authentication, and real-time sync.
+Track income and expenses seamlessly complete with backend, authentication, and real-time sync.
 
 This isn’t just a front-end app — it’s a complete mobile application with backend integration, authentication, and cloud-based storage.
 
