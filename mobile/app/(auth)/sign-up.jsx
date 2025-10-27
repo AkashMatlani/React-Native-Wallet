@@ -1,16 +1,18 @@
-import * as React from 'react'
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { useSignUp } from '@clerk/clerk-expo'
 import { Link, useRouter } from 'expo-router'
+import { useState } from 'react'
+import { styles } from "@/assets/styles/auth.styles.js";
+
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp()
   const router = useRouter()
 
-  const [emailAddress, setEmailAddress] = React.useState('')
-  const [password, setPassword] = React.useState('')
-  const [pendingVerification, setPendingVerification] = React.useState(false)
-  const [code, setCode] = React.useState('')
+  const [emailAddress, setEmailAddress] = useState('')
+  const [password, setPassword] = useState('')
+  const [pendingVerification, setPendingVerification] = useState(false)
+  const [code, setCode] = useState('')
 
   // Handle submission of sign-up form
   const onSignUpPress = async () => {
@@ -65,7 +67,7 @@ export default function SignUpScreen() {
 
   if (pendingVerification) {
     return (
-      <>
+      <View style={styles.errorBox}>
         <Text>Verify your email</Text>
         <TextInput
           value={code}
@@ -75,7 +77,7 @@ export default function SignUpScreen() {
         <TouchableOpacity onPress={onVerifyPress}>
           <Text>Verify</Text>
         </TouchableOpacity>
-      </>
+      </View>
     )
   }
 
