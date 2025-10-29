@@ -66,5 +66,15 @@ export const styles = StyleSheet.create({
     color:COLORS.white,
     fontSize:18,
     fontWeight: "600"
+  },
+
+  container:{
+    flex:1
+  },
+
+  illustration:{
+    height:310,
+    width:300,
+    resizeMode: "contain"
   }
 });
