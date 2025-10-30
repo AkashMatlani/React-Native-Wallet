@@ -7,7 +7,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors.js";
 import { Image } from "expo-image";
 
-
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
   const router = useRouter();
@@ -83,6 +82,7 @@ export default function SignUpScreen() {
             </TouchableOpacity>
           </View>
         ) : null}
+
         <TextInput
           style={[styles.verificationInput, error && styles.errorInput]}
           value={code}
@@ -96,30 +96,44 @@ export default function SignUpScreen() {
       </View>
     );
   }
-  console.log("Loaded file: (auth)/sign-up.jsx");
 
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <View style={styles.container}>
-        <Image source={require("../../assets/images/revenue-i2.png")}
-         style={styles.illustration}>
-         </ Image>
-        <Text>Sign up</Text>
+        <Image
+          source={require("../../assets/images/revenue-i2.png")}
+          style={styles.illustration}
+        ></Image>
+        <Text style={styles.title}>Create Account</Text>
+        {error ? (
+          <View style={styles.errorBox}>
+            <Ionicons name="alert-circle" size={20} color={COLORS.expense} />
+            <Text style={styles.errorText}> {error}</Text>
+            <TouchableOpacity onPress={() => setError("")}>
+              <Ionicons name="close" size={20} color={COLORS.textLight} />
+            </TouchableOpacity>
+          </View>
+        ) : null}
         <TextInput
+          style={[styles.input, error && styles.errorInput]}
           autoCapitalize="none"
           value={emailAddress}
           placeholder="Enter email"
+          placeholderTextColor="#9A8478"
           onChangeText={(email) => setEmailAddress(email)}
         />
         <TextInput
+          style={[styles.input, error && styles.errorInput]}
           value={password}
           placeholder="Enter password"
+          placeholderTextColor="#9A8478"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
-        <TouchableOpacity onPress={onSignUpPress}>
-          <Text>Continue</Text>
+        <TouchableOpacity style={styles.button} onPress={onSignUpPress}>
+          <Text style={styles.buttonText}>Sign UP</Text>
         </TouchableOpacity>
+        
         <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
           <Text>Already have an account?</Text>
           <Link href="/sign-in">

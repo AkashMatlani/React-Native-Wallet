@@ -53,6 +53,17 @@ export const styles = StyleSheet.create({
   errorInput:{
     borderColor: COLORS.expense,
   },
+
+  input:{
+    backgroundColor:COLORS.white,
+    borderRadius:12,
+    padding:15,
+    marginBottom:16,
+    borderWidth:1,
+    borderColor:COLORS.border,
+    fontSize:16,
+    color:COLORS.text
+  },
   button:{
     backgroundColor:COLORS.primary,
     borderRadius:12,
@@ -76,5 +87,12 @@ export const styles = StyleSheet.create({
     height:310,
     width:300,
     resizeMode: "contain"
+  },
+  title:{
+    fontSize:32,
+    fontStyle:"bold",
+    color:COLORS.text,
+    marginVertical:15,
+    textAlign: "center"
   }
 });
