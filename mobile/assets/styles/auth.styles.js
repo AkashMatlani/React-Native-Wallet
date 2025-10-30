@@ -22,77 +22,97 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  verificationTitle:{
-    fontSize:24,
-    fontWeight:"bold",
+  verificationTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
     color: COLORS.text,
-    marginBottom:20,
-    textAlign:"center"
+    marginBottom: 20,
+    textAlign: "center",
   },
-  errorText:{
+  errorText: {
     color: COLORS.text,
-    marginLeft:8,
-    flex:1,
-    fontSize:14
+    marginLeft: 8,
+    flex: 1,
+    fontSize: 14,
   },
 
-  verificationInput:{
-    backgroundColor:COLORS.white,
-    borderRadius:12,
-    padding:15,
-    marginBottom:16,
-    borderWidth:1,
-    borderColor:COLORS.border,
-    fontSize:16,
-    color:COLORS.text,
+  verificationInput: {
+    backgroundColor: COLORS.white,
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    fontSize: 16,
+    color: COLORS.text,
     width: "100%",
     textAlign: "center",
-    letterSpacing: 2
+    letterSpacing: 2,
   },
 
-  errorInput:{
+  errorInput: {
     borderColor: COLORS.expense,
   },
 
-  input:{
-    backgroundColor:COLORS.white,
-    borderRadius:12,
-    padding:15,
-    marginBottom:16,
-    borderWidth:1,
-    borderColor:COLORS.border,
-    fontSize:16,
-    color:COLORS.text
+  input: {
+    backgroundColor: COLORS.white,
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    fontSize: 16,
+    color: COLORS.text,
   },
-  button:{
-    backgroundColor:COLORS.primary,
-    borderRadius:12,
-    padding:16,
+  button: {
+    backgroundColor: COLORS.primary,
+    borderRadius: 12,
+    padding: 16,
     alignItems: "center",
-    marginTop:10,
-    marginBottom:10
+    marginTop: 10,
+    marginBottom: 10,
   },
 
-  buttonText:{
-    color:COLORS.white,
-    fontSize:18,
-    fontWeight: "600"
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 18,
+    fontWeight: "600",
   },
 
-  container:{
-    flex:1
+  container: {
+    flex: 1,
+    backgroundColor:COLORS.background,
+    padding:20,
+    justifyContent:"center"
   },
 
-  illustration:{
-    height:310,
-    width:300,
-    resizeMode: "contain"
+  illustration: {
+    height: 310,
+    width: 300,
+    resizeMode: "contain",
   },
-  title:{
-    fontSize:32,
-    fontStyle:"bold",
-    color:COLORS.text,
-    marginVertical:15,
-    textAlign: "center"
-  }
+  title: {
+    fontSize: 32,
+    fontStyle: "bold",
+    color: COLORS.text,
+    marginVertical: 15,
+    textAlign: "center",
+  },
+
+  footerContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
+  },
+
+  footerText: {
+    color: COLORS.text,
+    fontSize: 16,
+  },
+  linkText: {
+    color: COLORS.primary,
+    fontSize: 16,
+    fontWeight: "600",
+  },
 });

@@ -133,12 +133,12 @@ export default function SignUpScreen() {
         <TouchableOpacity style={styles.button} onPress={onSignUpPress}>
           <Text style={styles.buttonText}>Sign UP</Text>
         </TouchableOpacity>
-        
-        <View style={{ display: "flex", flexDirection: "row", gap: 3 }}>
-          <Text>Already have an account?</Text>
-          <Link href="/sign-in">
-            <Text>Sign in</Text>
-          </Link>
+
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>Already have an account?</Text>
+          <TouchableOpacity onPress={() => router.back()}>
+            <Text style={styles.linkText}>Sign in</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
