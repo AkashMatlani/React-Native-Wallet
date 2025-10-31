@@ -1,5 +1,4 @@
 import {neon} from "@neondatabase/serverless";
-import {sql} from "../config/db.js"
 
 import "dotenv/config";
 
