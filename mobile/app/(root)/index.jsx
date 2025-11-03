@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
-import { Link } from "expo-router";
-import { Text, View } from "react-native";
+import { Link, router, useRouter } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
 import { SignOutButton } from "../../components/SignOutButton";
 import { useTransactions } from "../../hooks/useTransaction";
 import { useEffect } from "react";
@@ -8,10 +8,12 @@ import PageLoader, { pageLoader } from "../../components/PageLoader";
 import { homeStyle } from "../../assets/styles/home.styles";
 import { Image } from "expo-image";
 import { styles } from "../../assets/styles/auth.styles";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function Page() {
   const { user } = useUser();
 
+  const router = useRouter();
   console.log("user:", user);
   // const userId = user?.id; // avoid crash
 
@@ -48,7 +50,16 @@ export default function Page() {
                 </Text>
               </View>
             </View>
-            
+
+            {/* Right */}
+            <View style={homeStyle.headerRight}>
+              <TouchableOpacity
+              style={homeStyle.addButton} onPress={()=> router.push("/create")}>
+                <Ionicons name="add" size={20} color="#FFF"></Ionicons>
+                <Text style={homeStyle.addButtonText}> Add</Text>
+              </TouchableOpacity>
+            </View>
+           <SignOutButton/>
             </View>
         </View>
     </View>

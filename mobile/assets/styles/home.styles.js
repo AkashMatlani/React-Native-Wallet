@@ -46,4 +46,39 @@ export const homeStyle = StyleSheet.create({
     fontWeight: "600",
     color: COLORS.text,
   },
+
+    headerRight: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap:12
+  },
+  addButton:{
+   backgroundColor:COLORS.primary,
+   paddingHorizontal:16,
+   paddingVertical:10,
+   borderRadius:24,
+   flexDirection:"row",
+   alignItems:"center",
+   shadowColor:"#000",
+   shadowOffset:{width:0,height:2},
+   shadowOpacity:0.1,
+   shadowRadius:4,
+   elevation:3
+  },
+
+  addButtonText:{
+    marginLeft:4,
+    fontWeight:"600",
+    color:COLORS.white
+  },
+  logoutButton:{
+    padding:10,
+    borderRadius:20,
+    backgroundColor:COLORS.card,
+    shadowColor:"#000",
+    shadowOffset:{width:0,height:1},
+    shadowOpacity:0.05,
+    shadowRadius:2,
+    elevation:1
+  }
 });
