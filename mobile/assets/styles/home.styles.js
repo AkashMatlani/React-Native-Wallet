@@ -106,4 +106,28 @@ export const homeStyle = StyleSheet.create({
     color: COLORS.text,
     marginBottom: 20,
   },
+
+  balanceStats: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  balanceStatItem: {
+    flex: 1,
+    alignItems: "center",
+  },
+  balnaceStatLabel: {
+    fontSize: 14,
+    color: COLORS.textLight,
+    marginBottom: 4,
+  },
+
+  balanceStatAmount: {
+    fontSize: 16,
+    color:COLORS.income
+  },
+
+  statDivider:{
+    borderRightWidth:1,
+    borderColor:COLORS.border
+  }
 });
