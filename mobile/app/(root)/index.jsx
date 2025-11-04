@@ -11,6 +11,7 @@ import { styles } from "../../assets/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
 
 export default function Page() {
+  
   const { user } = useUser();
 
   const router = useRouter();
@@ -46,7 +47,7 @@ export default function Page() {
 
             <View style={homeStyle.welcomeContainer}>
               <Text style={homeStyle.welcomeText}>Welcome,</Text>
-                <Text style={homeStyle.userNameText}>{user.emailAddresses[0]?.emailAddress.split("@")[0]}
+                <Text style={homeStyle.userNameText}>{user?.emailAddresses[0]?.emailAddress.split("@")[0]}
                 </Text>
               </View>
             </View>
