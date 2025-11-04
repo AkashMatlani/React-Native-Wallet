@@ -47,52 +47,63 @@ export const homeStyle = StyleSheet.create({
     color: COLORS.text,
   },
 
-    headerRight: {
+  headerRight: {
     alignItems: "center",
     flexDirection: "row",
-    gap:12
+    gap: 12,
   },
-  addButton:{
-   backgroundColor:COLORS.primary,
-   paddingHorizontal:16,
-   paddingVertical:10,
-   borderRadius:24,
-   flexDirection:"row",
-   alignItems:"center",
-   shadowColor:"#000",
-   shadowOffset:{width:0,height:2},
-   shadowOpacity:0.1,
-   shadowRadius:4,
-   elevation:3
+  addButton: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderRadius: 24,
+    flexDirection: "row",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
-  addButtonText:{
-    marginLeft:4,
-    fontWeight:"600",
-    color:COLORS.white
+  addButtonText: {
+    marginLeft: 4,
+    fontWeight: "600",
+    color: COLORS.white,
   },
-  logoutButton:{
-    padding:10,
-    borderRadius:20,
-    backgroundColor:COLORS.card,
-    shadowColor:"#000",
-    shadowOffset:{width:0,height:1},
-    shadowOpacity:0.05,
-    shadowRadius:2,
-    elevation:1
+  logoutButton: {
+    padding: 10,
+    borderRadius: 20,
+    backgroundColor: COLORS.card,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+    elevation: 1,
   },
-  balanceCard:{
-    borderRadius:20,
-    backgroundColor:COLORS.card,
-    padding:20,
-    marginBottom:20,
-    shadowColor:COLORS.shadow,
-    shadowOffset:{
-      width:0,
-      height:2
+  balanceCard: {
+    borderRadius: 20,
+    backgroundColor: COLORS.card,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: COLORS.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    shadowOpacity:0.1,
-    shadowRadius:3,
-    elevation:3
-  }
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  balanceTitle: {
+    fontSize: 16,
+    marginBottom: 8,
+    color: COLORS.textLight,
+  },
+  balanceAmount: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: COLORS.text,
+    marginBottom: 20,
+  },
 });
