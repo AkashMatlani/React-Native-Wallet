@@ -1,27 +1,35 @@
-import { useClerk } from '@clerk/clerk-expo'
-import * as Linking from 'expo-linking'
-import { Text, TouchableOpacity } from 'react-native'
-import { homeStyle } from '../assets/styles/home.styles'
-import { Ionicons } from '@expo/vector-icons'
-import { COLORS } from '../constants/colors'
+import { useClerk } from "@clerk/clerk-expo";
+import { Text, TouchableOpacity, Alert } from "react-native";
+import { homeStyle } from "../assets/styles/home.styles";
+import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "../constants/colors";
+import { router } from "expo-router";
 
 export const SignOutButton = () => {
   // Use `useClerk()` to access the `signOut()` function
-  const { signOut } = useClerk()
+  const { signOut } = useClerk();
   const handleSignOut = async () => {
     try {
-      await signOut()
-      // Redirect to your desired page
-      Linking.openURL(Linking.createURL('/'))
+      Alert.alert("Logout", "Are you sure want to logout?", [
+        { text: "Cancel", style: "Cancel" },
+        {
+          text: "Logout",
+          style: "destrutive",
+          onPress: async () => {
+            await signOut();
+            router.replace("/sign-in");
+          },
+        },
+      ]);
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
-      console.error(JSON.stringify(err, null, 2))
+      console.error(JSON.stringify(err, null, 2));
     }
-  }
+  };
   return (
-    <TouchableOpacity  style={homeStyle.logoutButton}onPress={handleSignOut}>
-      <Ionicons name='log-out-outline' size={22} color={COLORS.text}></Ionicons>
+    <TouchableOpacity style={homeStyle.logoutButton} onPress={handleSignOut}>
+      <Ionicons name="log-out-outline" size={22} color={COLORS.text}></Ionicons>
     </TouchableOpacity>
-  )
-}
+  );
+};
