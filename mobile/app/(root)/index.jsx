@@ -1,5 +1,5 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
-import { Link, router, useRouter } from "expo-router";
+import {  useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 import { SignOutButton } from "../../components/SignOutButton";
 import { useTransactions } from "../../hooks/useTransaction";
@@ -7,11 +7,10 @@ import { useEffect } from "react";
 import PageLoader, { pageLoader } from "../../components/PageLoader";
 import { homeStyle } from "../../assets/styles/home.styles";
 import { Image } from "expo-image";
-import { styles } from "../../assets/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
+import BalanceCard from "../../components/BalanceCard";
 
 export default function Page() {
-  
   const { user } = useUser();
 
   const router = useRouter();
@@ -39,30 +38,38 @@ export default function Page() {
         {/* Headrer */}
         <View style={homeStyle.header}>
           {/* Left */}
-            <View style={homeStyle.headerLeft}>
-            <Image source={require("../../assets/images/logo.png")}
-            style={homeStyle.headerLogo}
-            contentFit="contain">
-            </Image>
+          <View style={homeStyle.headerLeft}>
+            <Image
+              source={require("../../assets/images/logo.png")}
+              style={homeStyle.headerLogo}
+              contentFit="contain"
+            ></Image>
 
             <View style={homeStyle.welcomeContainer}>
               <Text style={homeStyle.welcomeText}>Welcome,</Text>
-                <Text style={homeStyle.userNameText}>{user?.emailAddresses[0]?.emailAddress.split("@")[0]}
-                </Text>
-              </View>
+              <Text style={homeStyle.userNameText}>
+                {user?.emailAddresses[0]?.emailAddress.split("@")[0]}
+              </Text>
             </View>
+          </View>
 
-            {/* Right */}
-            <View style={homeStyle.headerRight}>
-              <TouchableOpacity
-              style={homeStyle.addButton} onPress={()=> router.push("/create")}>
-                <Ionicons name="add" size={20} color="#FFF"></Ionicons>
-                <Text style={homeStyle.addButtonText}> Add</Text>
-              </TouchableOpacity>
-            </View>
-           <SignOutButton/>
-            </View>
+          {/* Right */}
+          <View style={homeStyle.headerRight}>
+            <TouchableOpacity
+              style={homeStyle.addButton}
+              onPress={() => router.push("/create")}
+            >
+              <Ionicons name="add" size={20} color="#FFF"></Ionicons>
+              <Text style={homeStyle.addButtonText}> Add</Text>
+            </TouchableOpacity>
+          </View>
+          <SignOutButton />
         </View>
+
+        {/* Balance Card */}
+
+        <BalanceCard summary={summary} />
+      </View>
     </View>
   );
 }

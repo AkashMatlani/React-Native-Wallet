@@ -80,5 +80,19 @@ export const homeStyle = StyleSheet.create({
     shadowOpacity:0.05,
     shadowRadius:2,
     elevation:1
+  },
+  balanceCard:{
+    borderRadius:20,
+    backgroundColor:COLORS.card,
+    padding:20,
+    marginBottom:20,
+    shadowColor:COLORS.shadow,
+    shadowOffset:{
+      width:0,
+      height:2
+    },
+    shadowOpacity:0.1,
+    shadowRadius:3,
+    elevation:3
   }
 });
