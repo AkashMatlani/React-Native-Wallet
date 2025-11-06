@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity, View } from "react-native";
 import { homeStyle } from "../assets/styles/home.styles";
+import { COLORS } from "../constants/colors";
 
 const CATEGORY_ICONS = {
   "Food & Drinks": "fast-food",
@@ -14,14 +15,15 @@ const CATEGORY_ICONS = {
 
 export const TransactionItem = ({ item, onDelete }) => {
   const isIncome = parseFloat(item.amount) > 0;
-  const iconName = CATEGORY_ICONS[item.category] || "pricetag-ouline";
+  const iconName = CATEGORY_ICONS[item.category] || "pricetag-outline";
 
-  return(
-
-  <View style={homeStyle.transactionCard} key={item.id}>
-
-    <TouchableOpacity style={homeStyle.transactionContent}
-    ></TouchableOpacity>
-  </View>
+  return (
+    <View style={homeStyle.transactionCard} key={item.id}>
+      <TouchableOpacity style={homeStyle.transactionContent}>
+        <View style={homeStyle.categoryIconContainer}>
+            <Ionicons name={iconName} size={22} color={isIncome?COLORS.income: COLORS.expense}></Ionicons>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 };

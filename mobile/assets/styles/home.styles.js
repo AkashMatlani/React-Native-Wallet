@@ -175,4 +175,13 @@ export const homeStyle = StyleSheet.create({
     padding: 15,
     alignItems: "center",
   },
+  categoryIconContainer:{
+    width:40,
+    height:40,
+    borderRadius:20,
+    backgroundColor:'#F5F5F5',
+    justifyContent:"center",
+    alignItems:"center",
+    marginRight:12,
+  }
 });
