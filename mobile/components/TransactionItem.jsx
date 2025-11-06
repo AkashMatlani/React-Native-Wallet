@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View } from "react-native";
 import { homeStyle } from "../assets/styles/home.styles";
 import { COLORS } from "../constants/colors";
+import { formatDate } from "../lib/utils";
 
 const CATEGORY_ICONS = {
   "Food & Drinks": "fast-food",
@@ -30,6 +31,11 @@ export const TransactionItem = ({ item, onDelete }) => {
         <View style={homeStyle.transactionLeft}>
           <Text style={homeStyle.transactionTitle}>{item.title}</Text>
           <Text style={homeStyle.transactionTitle}>{item.category}</Text>
+        </View>
+        <View style={homeStyle.transactionRight}>
+          <Text style={[homeStyle.transactionAmount,{color:isIncome?COLORS.income:COLORS.expense}]}>
+            {isIncome ? "+" : "-"} ${Math.abs(parseFloat(item.amount)).toFixed(2)}</Text>
+          <Text style={homeStyle.transactionTitle}>{formatDate(item.created_at)}</Text>
         </View>
       </TouchableOpacity>
     </View>
