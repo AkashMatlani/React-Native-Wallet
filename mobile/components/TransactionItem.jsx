@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { homeStyle } from "../assets/styles/home.styles";
 import { COLORS } from "../constants/colors";
 
@@ -21,7 +21,15 @@ export const TransactionItem = ({ item, onDelete }) => {
     <View style={homeStyle.transactionCard} key={item.id}>
       <TouchableOpacity style={homeStyle.transactionContent}>
         <View style={homeStyle.categoryIconContainer}>
-            <Ionicons name={iconName} size={22} color={isIncome?COLORS.income: COLORS.expense}></Ionicons>
+          <Ionicons
+            name={iconName}
+            size={22}
+            color={isIncome ? COLORS.income : COLORS.expense}
+          ></Ionicons>
+        </View>
+        <View style={homeStyle.transactionLeft}>
+          <Text style={homeStyle.transactionTitle}>{item.title}</Text>
+          <Text style={homeStyle.transactionTitle}>{item.category}</Text>
         </View>
       </TouchableOpacity>
     </View>

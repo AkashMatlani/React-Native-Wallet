@@ -183,5 +183,11 @@ export const homeStyle = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center",
     marginRight:12,
+  },
+  transactionLeft:{
+    flex:1,
+  },
+  transactionTitle:{
+    
   }
 });
