@@ -123,11 +123,56 @@ export const homeStyle = StyleSheet.create({
 
   balanceStatAmount: {
     fontSize: 16,
-    color:COLORS.income
+    color: COLORS.income,
   },
 
-  statDivider:{
-    borderRightWidth:1,
-    borderColor:COLORS.border
-  }
+  statDivider: {
+    borderRightWidth: 1,
+    borderColor: COLORS.border,
+  },
+  transactionHeaderContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 10,
+    paddingBottom: 5,
+  },
+
+  sectionTitle: {
+    color: COLORS.text,
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 15,
+  },
+
+  transactionsList: {
+    flex: 1,
+    marginHorizontal: 20,
+  },
+  transactionsListContent: {
+    paddingBottom: 20,
+  },
+
+  transactionCard: {
+    elevation: 2,
+    borderRadius: 12,
+    backgroundColor: COLORS.card,
+    flexDirection: "row",
+    marginBottom: 10,
+    alignItems: "center",
+    shadowColor: COLORS.shadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+
+  transactionContent: {
+    flexDirection: "row",
+    flex: 1,
+    padding: 15,
+    alignItems: "center",
+  },
 });

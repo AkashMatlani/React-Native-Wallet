@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
-import {  useRouter } from "expo-router";
-import { Text, TouchableOpacity, View } from "react-native";
+import { useRouter } from "expo-router";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SignOutButton } from "../../components/SignOutButton";
 import { useTransactions } from "../../hooks/useTransaction";
 import { useEffect } from "react";
@@ -9,6 +9,8 @@ import { homeStyle } from "../../assets/styles/home.styles";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import BalanceCard from "../../components/BalanceCard";
+import { styles } from "../../assets/styles/auth.styles";
+import { TransactionItem } from "../../components/TransactionItem";
 
 export default function Page() {
   const { user } = useUser();
@@ -69,7 +71,17 @@ export default function Page() {
         {/* Balance Card */}
 
         <BalanceCard summary={summary} />
+        <View style={homeStyle.transactionHeaderContainer}>
+          <Text style={homeStyle.sectionTitle}>Recent Transaction</Text>
+        </View>
       </View>
+
+      <FlatList
+        style={homeStyle.transactionsList}
+        contentContainerStyle={homeStyle.transactionsListContent}
+        data={transactions}
+        renderItem={({item})=> (<TransactionItem item={item}/>)}
+      ></FlatList>
     </View>
   );
 }
