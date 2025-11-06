@@ -1,6 +1,6 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
-import { FlatList, Text, TouchableOpacity, View } from "react-native";
+import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SignOutButton } from "../../components/SignOutButton";
 import { useTransactions } from "../../hooks/useTransaction";
 import { useEffect } from "react";
@@ -9,7 +9,6 @@ import { homeStyle } from "../../assets/styles/home.styles";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import BalanceCard from "../../components/BalanceCard";
-import { styles } from "../../assets/styles/auth.styles";
 import { TransactionItem } from "../../components/TransactionItem";
 
 export default function Page() {
@@ -28,9 +27,23 @@ export default function Page() {
     loadData();
   }, [loadData]);
 
-  // console.log("userid:------" ,user.id)
-  console.log("transaction:", transactions);
-  console.log("summary:", summary);
+  const handleDelete = (id) => {
+    Alert.alert(
+      "Delete Transaction",
+      "Are you sure you want to delete this trasnactions?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+
+        {
+          text: "Delete",
+          style: "destructive",
+          onPress: () => deleteTransaction(id),
+        },
+      ]);
+  };
 
   if (isLoading) return <PageLoader />;
 
@@ -80,7 +93,9 @@ export default function Page() {
         style={homeStyle.transactionsList}
         contentContainerStyle={homeStyle.transactionsListContent}
         data={transactions}
-        renderItem={({item})=> (<TransactionItem item={item}/>)}
+        renderItem={({ item }) => (
+          <TransactionItem item={item} onDelete={handleDelete} />
+        )}
       ></FlatList>
     </View>
   );

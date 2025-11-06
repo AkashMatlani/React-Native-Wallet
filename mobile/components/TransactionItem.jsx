@@ -33,10 +33,30 @@ export const TransactionItem = ({ item, onDelete }) => {
           <Text style={homeStyle.transactionTitle}>{item.category}</Text>
         </View>
         <View style={homeStyle.transactionRight}>
-          <Text style={[homeStyle.transactionAmount,{color:isIncome?COLORS.income:COLORS.expense}]}>
-            {isIncome ? "+" : "-"} ${Math.abs(parseFloat(item.amount)).toFixed(2)}</Text>
-          <Text style={homeStyle.transactionTitle}>{formatDate(item.created_at)}</Text>
+          <Text
+            style={[
+              homeStyle.transactionAmount,
+              { color: isIncome ? COLORS.income : COLORS.expense },
+            ]}
+          >
+            {isIncome ? "+" : "-"} $
+            {Math.abs(parseFloat(item.amount)).toFixed(2)}
+          </Text>
+          <Text style={homeStyle.transactionDate}>
+            {formatDate(item.created_at)}
+          </Text>
         </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={homeStyle.deleteButton}
+        onPress={()=>onDelete(item.id)}
+      >
+        <Ionicons
+          name="trash-outline"
+          size={20}
+          color={COLORS.expense}
+        ></Ionicons>
       </TouchableOpacity>
     </View>
   );
