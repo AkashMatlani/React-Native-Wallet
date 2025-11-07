@@ -10,6 +10,7 @@ import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 import BalanceCard from "../../components/BalanceCard";
 import { TransactionItem } from "../../components/TransactionItem";
+import NoTransactionFound from "../../components/NoTransactionFound";
 
 export default function Page() {
   const { user } = useUser();
@@ -42,7 +43,8 @@ export default function Page() {
           style: "destructive",
           onPress: () => deleteTransaction(id),
         },
-      ]);
+      ]
+    );
   };
 
   if (isLoading) return <PageLoader />;
@@ -96,6 +98,7 @@ export default function Page() {
         renderItem={({ item }) => (
           <TransactionItem item={item} onDelete={handleDelete} />
         )}
+        ListEmptyComponent={<NoTransactionFound />}
       ></FlatList>
     </View>
   );

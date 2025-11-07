@@ -241,4 +241,22 @@ export const homeStyle = StyleSheet.create({
     marginBottom: 20,
     lineHeight: 20,
   },
+  emptyStateButton: {
+    backgroundColor: COLORS.primary,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  emptyStateButtonText: {
+    color: COLORS.white,
+    fontWeight: "600",
+    marginLeft: 6,
+  },
 });
