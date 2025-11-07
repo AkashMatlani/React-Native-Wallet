@@ -196,18 +196,31 @@ export const homeStyle = StyleSheet.create({
   transactionRight: {
     alignItems: "flex-end",
   },
-  transactionAmount:{
-    fontSize:16,
-    fontWeight:"600",
-    marginBottom:4
+  transactionAmount: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 4,
   },
-  deleteButton:{
-    padding:15,
-    borderLeftWidth:1,
-    borderLeftColor:COLORS.border
+  deleteButton: {
+    padding: 15,
+    borderLeftWidth: 1,
+    borderLeftColor: COLORS.border,
   },
-  transactionDate:{
-    fontSize:12,
-    color:COLORS.textLight
-  }
+  transactionDate: {
+    fontSize: 12,
+    color: COLORS.textLight,
+  },
+  emptyState: {
+    backgroundColor: COLORS.card,
+    borderRadius: 16,
+    padding: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+    shadowColor: COLORS.shadow,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
 });
