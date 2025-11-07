@@ -200,5 +200,14 @@ export const homeStyle = StyleSheet.create({
     fontSize:16,
     fontWeight:"600",
     marginBottom:4
+  },
+  deleteButton:{
+    padding:15,
+    borderLeftWidth:1,
+    borderLeftColor:COLORS.border
+  },
+  transactionDate:{
+    fontSize:12,
+    color:COLORS.textLight
   }
 });
