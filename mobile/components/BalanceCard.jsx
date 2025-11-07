@@ -1,9 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { homeStyle } from "../assets/styles/home.styles";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { COLORS } from "../constants/colors";
-import { styles } from "../assets/styles/auth.styles";
 const BalanceCard = ({ summary }) => {
   return (
     <View style={homeStyle.balanceCard}>

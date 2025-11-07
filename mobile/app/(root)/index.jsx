@@ -4,7 +4,7 @@ import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native";
 import { SignOutButton } from "../../components/SignOutButton";
 import { useTransactions } from "../../hooks/useTransaction";
 import { useEffect } from "react";
-import PageLoader, { pageLoader } from "../../components/PageLoader";
+import PageLoader from "../../components/PageLoader";
 import { homeStyle } from "../../assets/styles/home.styles";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
@@ -99,6 +99,7 @@ export default function Page() {
           <TransactionItem item={item} onDelete={handleDelete} />
         )}
         ListEmptyComponent={<NoTransactionFound />}
+        showsVerticalScrollIndicator={false}
       ></FlatList>
     </View>
   );

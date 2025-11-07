@@ -11,10 +11,10 @@ export const SignOutButton = () => {
   const handleSignOut = async () => {
     try {
       Alert.alert("Logout", "Are you sure want to logout?", [
-        { text: "Cancel", style: "Cancel" },
+    { text: "Cancel", style: "cancel" },
         {
           text: "Logout",
-          style: "destrutive",
+          style: "destructive",
           onPress: async () => {
             await signOut();
             router.replace("/sign-in");
