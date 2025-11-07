@@ -223,4 +223,22 @@ export const homeStyle = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
+
+  emptyStateIcon: {
+    marginBottom: 16,
+  },
+
+  emptyStateTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: COLORS.text,
+    marginBottom: 8,
+  },
+  emptyStateText: {
+    fontSize: 14,
+    color: COLORS.textLight,
+    textAlign: "center",
+    marginBottom: 20,
+    lineHeight: 20,
+  },
 });
