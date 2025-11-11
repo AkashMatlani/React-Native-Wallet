@@ -5,7 +5,7 @@ import { useUser } from "@clerk/clerk-expo";
 import { styles } from "../../assets/styles/create.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants/colors";
-import { API_URL } from "../constants/api";
+import { API_URL } from "../../constants/api";
 
 const CATEGORIES = [
   { id: "food", name: "Food & Drinks", icon: "fast-food" },
@@ -75,27 +75,41 @@ const CreateScreen = () => {
   };
 
   return (
-    <View style={styles.categoryGrid}>
-      {CATEGORIES.map((category) => (
+    <View style={styles.container}>
+      <View style={styles.header}>
         <TouchableOpacity
-          key={category.id}
-          styles={[
-            styles.categoryButton,
-            selectdCategory === category.name && styles.categoryButtonActive,
-          ]}
-          onPress={() => setSelectedCategory(category.name)}
+          style={styles.backButton}
+          onPress={() => router.back()}
         >
-          <Ionicons
-            name={category.icon}
-            size={20}
-            color={
-              selectdCategory === category.name ? COLORS.white : COLORS.text
-            }
-            style={styles.categoryIcon}
-          ></Ionicons>
-          <Text style={[styles.categoryButtonText]}>{category.name}</Text>
+          <Ionicons name="arrow-back"></Ionicons>
         </TouchableOpacity>
-      ))}
+
+        <Text style={styles.headerTitle}>New Transaction</Text>
+        <Text style={styles.saveButton}>{isLoading?"Saving...":"Save"}</Text>
+        {!isLoading && <Ionicons name="checkmark" size={18} color={COLORS.primary}/> }
+      </View>
+      <View style={styles.categoryGrid}>
+        {CATEGORIES.map((category) => (
+          <TouchableOpacity
+            key={category.id}
+            styles={[
+              styles.categoryButton,
+              selectdCategory === category.name && styles.categoryButtonActive,
+            ]}
+            onPress={() => setSelectedCategory(category.name)}
+          >
+            <Ionicons
+              name={category.icon}
+              size={20}
+              color={
+                selectdCategory === category.name ? COLORS.white : COLORS.text
+              }
+              style={styles.categoryIcon}
+            ></Ionicons>
+            <Text style={[styles.categoryButtonText]}>{category.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 };
