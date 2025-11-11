@@ -84,9 +84,70 @@ const CreateScreen = () => {
           <Ionicons name="arrow-back"></Ionicons>
         </TouchableOpacity>
 
+        <TouchableOpacity
+          style={[
+            styles.saveButtonContainer,
+            isLoading && styles.saveButtonDisabled,
+          ]}
+          onPress={handleCreate}
+          disabled={isLoading}
+        ></TouchableOpacity>
         <Text style={styles.headerTitle}>New Transaction</Text>
-        <Text style={styles.saveButton}>{isLoading?"Saving...":"Save"}</Text>
-        {!isLoading && <Ionicons name="checkmark" size={18} color={COLORS.primary}/> }
+        <Text style={styles.saveButton}>
+          {isLoading ? "Saving..." : "Save"}
+        </Text>
+        {!isLoading && (
+          <Ionicons name="checkmark" size={18} color={COLORS.primary} />
+        )}
+      </View>
+
+      {/* card */}
+      <View style={styles.card}>
+        <View style={styles.typeSelector}>
+          {/* Expense selector */}
+          <TouchableOpacity
+            style={[styles.typeButton, isExpense && styles.typeButtonActive]}
+            onPress={() => setIsExpense(true)}
+          >
+            <Ionicons
+              name="arrow-down-circle"
+              size={22}
+              color={isExpense ? COLORS.white : COLORS.expense}
+              style={styles.typeIcon}
+            ></Ionicons>
+
+            <Text
+              style={[
+                styles.typeButtonText,
+                isExpense && styles.typeButtonTextActive,
+              ]}
+            >
+              Expense
+            </Text>
+          </TouchableOpacity>
+
+          {/* Income Selector*/}
+          <TouchableOpacity
+            style={[styles.typeButton, !isExpense && styles.typeButtonActive]}
+            onPress={() => setIsExpense(false)}
+          >
+            <Ionicons
+              name="arrow-up-circle"
+              size={22}
+              color={!isExpense ? COLORS.white : COLORS.expense}
+              style={styles.typeIcon}
+            ></Ionicons>
+
+            <Text
+              style={[
+                styles.typeButtonText,
+                !isExpense && styles.typeButtonTextActive,
+              ]}
+            >
+              Income
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={styles.categoryGrid}>
         {CATEGORIES.map((category) => (

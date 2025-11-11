@@ -22,6 +22,58 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
     color: COLORS.text,
   },
+  saveButtonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  saveButtonDisabled: {
+    opacity: 0.5,
+  },
+  card: {
+    elevation: 3,
+    backgroundColor: COLORS.card,
+    margin: 16,
+    borderRadius: 16,
+    padding: 16,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+
+  typeSelector: {
+    flexDirection: "row",
+    marginBottom: 20,
+    gap: 10,
+  },
+
+  typeButton: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+  },
+  typeButtonActive: {
+    backgroundColor: COLORS.primary,
+    borderColor: COLORS.primary,
+  },
+  typeIcon: {
+    marginRight: 8,
+  },
+  typeButtonText: {
+    fontSize: 16,
+    color: COLORS.text,
+    fontWeight: "500",
+  },
+  typeButtonTextActive:{
+  color:COLORS.white,
+  
+  },
   categoryGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
