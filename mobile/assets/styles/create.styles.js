@@ -152,4 +152,7 @@ export const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: 14,
   },
+  categoryButtonTextActive: {
+    color: COLORS.white,
+  },
 });

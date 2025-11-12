@@ -191,12 +191,13 @@ const CreateScreen = () => {
         <Text style={styles.sectionTitle}>
           <Ionicons name="pricetag-outline" size={16} color={COLORS.text}>Category</Ionicons>
         </Text>
+
         {/* Category Grid */}
         <View style={styles.categoryGrid}>
           {CATEGORIES.map((category) => (
             <TouchableOpacity
               key={category.id}
-              styles={[
+              style={[
                 styles.categoryButton,
                 selectdCategory === category.name &&
                   styles.categoryButtonActive,
@@ -211,9 +212,15 @@ const CreateScreen = () => {
                 }
                 style={styles.categoryIcon}
               ></Ionicons>
-              <Text style={[styles.categoryButtonText]}>{category.name}</Text>
+              <Text style={[
+                styles.categoryButtonText,
+                selectdCategory===category.name && styles.categoryButtonTextActive]}
+              >
+                {category.name}
+                </Text>
             </TouchableOpacity>
           ))}
+
         </View>
       </View>
     </View>
