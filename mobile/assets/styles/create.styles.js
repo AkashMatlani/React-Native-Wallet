@@ -117,6 +117,15 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.text,
   },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: COLORS.text,
+    marginBottom: 15,
+    marginTop: 10,
+    flexDirection: "row",
+    alignItems: "center",
+  },
   categoryGrid: {
     flexDirection: "row",
     flexWrap: "wrap",

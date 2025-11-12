@@ -186,6 +186,11 @@ const CreateScreen = () => {
             onChangeText={setTitle}
           ></TextInput>
         </View>
+
+        {/* Title  */}
+        <Text style={styles.sectionTitle}>
+          <Ionicons name="pricetag-outline" size={16} color={COLORS.text}>Category</Ionicons>
+        </Text>
         {/* Category Grid */}
         <View style={styles.categoryGrid}>
           {CATEGORIES.map((category) => (
