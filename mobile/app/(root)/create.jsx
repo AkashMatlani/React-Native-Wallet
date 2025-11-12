@@ -155,8 +155,8 @@ const CreateScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
-        {/* Amount Container */}
 
+        {/* Amount Container */}
         <View style={styles.amountContainer}>
           <Text style={styles.currencySymbol}>$</Text>
           <TextInput
@@ -169,7 +169,24 @@ const CreateScreen = () => {
           ></TextInput>
         </View>
 
-          {/* Category Grid */}
+        {/* Input Container */}
+        <View style={styles.inputConatiner}>
+          <Ionicons
+            name="create-outline"
+            size={22}
+            color={COLORS.textLight}
+            style={styles.inputIcon}
+          ></Ionicons>
+
+          <TextInput
+            style={styles.input}
+            placeholder="Transaction Title"
+            placeholderTextColor={COLORS.textLight}
+            value={title}
+            onChangeText={setTitle}
+          ></TextInput>
+        </View>
+        {/* Category Grid */}
         <View style={styles.categoryGrid}>
           {CATEGORIES.map((category) => (
             <TouchableOpacity

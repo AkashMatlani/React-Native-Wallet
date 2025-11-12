@@ -84,29 +84,38 @@ export const styles = StyleSheet.create({
   },
 
   currencySymbol: {
-    fontSize:32,
+    fontSize: 32,
     color: COLORS.text,
-    marginRight:8,
-    fontWeight:"bold"
+    marginRight: 8,
+    fontWeight: "bold",
   },
 
   amountInput: {
-    flex:1,
-    fontSize:36,
-    fontWeight:32,
-    fontWeight:"bold"
+    flex: 1,
+    fontSize: 36,
+    fontWeight: 32,
+    fontWeight: "bold",
   },
 
-  inputConatiner:{
-    alignItems:"center",
-    flexDirection:"row",
-    borderWidth:1,
-    borderBottomColor:COLORS.border,
-    borderRadius:12,
-    padding:4,
-    marginBottom:20,
-    backgroundColor:COLORS.white
+  inputConatiner: {
+    alignItems: "center",
+    flexDirection: "row",
+    borderWidth: 1,
+    borderBottomColor: COLORS.border,
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 20,
+    backgroundColor: COLORS.white,
+  },
 
+  inputIcon: {
+    marginHorizontal: 12,
+  },
+  input: {
+    flex: 1,
+    padding: 12,
+    fontSize: 16,
+    color: COLORS.text,
   },
   categoryGrid: {
     flexDirection: "row",
