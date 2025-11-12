@@ -70,9 +70,43 @@ export const styles = StyleSheet.create({
     color: COLORS.text,
     fontWeight: "500",
   },
-  typeButtonTextActive:{
-  color:COLORS.white,
-  
+  typeButtonTextActive: {
+    color: COLORS.white,
+  },
+
+  amountContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.border,
+    paddingBottom: 16,
+    marginBottom: 20,
+  },
+
+  currencySymbol: {
+    fontSize:32,
+    color: COLORS.text,
+    marginRight:8,
+    fontWeight:"bold"
+  },
+
+  amountInput: {
+    flex:1,
+    fontSize:36,
+    fontWeight:32,
+    fontWeight:"bold"
+  },
+
+  inputConatiner:{
+    alignItems:"center",
+    flexDirection:"row",
+    borderWidth:1,
+    borderBottomColor:COLORS.border,
+    borderRadius:12,
+    padding:4,
+    marginBottom:20,
+    backgroundColor:COLORS.white
+
   },
   categoryGrid: {
     flexDirection: "row",

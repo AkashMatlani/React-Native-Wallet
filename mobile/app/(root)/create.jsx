@@ -1,4 +1,11 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import { useUser } from "@clerk/clerk-expo";
@@ -148,28 +155,44 @@ const CreateScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
-      <View style={styles.categoryGrid}>
-        {CATEGORIES.map((category) => (
-          <TouchableOpacity
-            key={category.id}
-            styles={[
-              styles.categoryButton,
-              selectdCategory === category.name && styles.categoryButtonActive,
-            ]}
-            onPress={() => setSelectedCategory(category.name)}
-          >
-            <Ionicons
-              name={category.icon}
-              size={20}
-              color={
-                selectdCategory === category.name ? COLORS.white : COLORS.text
-              }
-              style={styles.categoryIcon}
-            ></Ionicons>
-            <Text style={[styles.categoryButtonText]}>{category.name}</Text>
-          </TouchableOpacity>
-        ))}
+        {/* Amount Container */}
+
+        <View style={styles.amountContainer}>
+          <Text style={styles.currencySymbol}>$</Text>
+          <TextInput
+            style={styles.amountInput}
+            placeholder="0.0"
+            placeholderTextColor={COLORS.textLight}
+            value={amount}
+            onChangeText={setAmount}
+            keyboardType="numeric"
+          ></TextInput>
+        </View>
+
+          {/* Category Grid */}
+        <View style={styles.categoryGrid}>
+          {CATEGORIES.map((category) => (
+            <TouchableOpacity
+              key={category.id}
+              styles={[
+                styles.categoryButton,
+                selectdCategory === category.name &&
+                  styles.categoryButtonActive,
+              ]}
+              onPress={() => setSelectedCategory(category.name)}
+            >
+              <Ionicons
+                name={category.icon}
+                size={20}
+                color={
+                  selectdCategory === category.name ? COLORS.white : COLORS.text
+                }
+                style={styles.categoryIcon}
+              ></Ionicons>
+              <Text style={[styles.categoryButtonText]}>{category.name}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
     </View>
   );
