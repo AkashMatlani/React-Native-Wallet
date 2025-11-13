@@ -155,4 +155,10 @@ export const styles = StyleSheet.create({
   categoryButtonTextActive: {
     color: COLORS.white,
   },
+  loadingContainer:{
+     flex:1,
+     justifyContent:"center",
+     alignItems:"center",
+     backgroundColor:COLORS.background
+  }
 });

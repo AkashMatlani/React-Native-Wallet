@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Alert,
   StyleSheet,
   Text,
@@ -59,7 +60,7 @@ const CreateScreen = () => {
         },
 
         body: JSON.stringify({
-          userId: user.id,
+          user_id: user.id,
           title,
           amount: formattedAmount,
           category: selectdCategory,
@@ -91,6 +92,8 @@ const CreateScreen = () => {
           <Ionicons name="arrow-back"></Ionicons>
         </TouchableOpacity>
 
+        <Text style={styles.headerTitle}>New Transaction</Text>
+
         <TouchableOpacity
           style={[
             styles.saveButtonContainer,
@@ -98,14 +101,15 @@ const CreateScreen = () => {
           ]}
           onPress={handleCreate}
           disabled={isLoading}
-        ></TouchableOpacity>
-        <Text style={styles.headerTitle}>New Transaction</Text>
-        <Text style={styles.saveButton}>
+        >
+           <Text style={styles.saveButton}>
           {isLoading ? "Saving..." : "Save"}
         </Text>
         {!isLoading && (
           <Ionicons name="checkmark" size={18} color={COLORS.primary} />
         )}
+        </TouchableOpacity>
+       
       </View>
 
       {/* card */}
@@ -189,7 +193,9 @@ const CreateScreen = () => {
 
         {/* Title  */}
         <Text style={styles.sectionTitle}>
-          <Ionicons name="pricetag-outline" size={16} color={COLORS.text}>Category</Ionicons>
+          <Ionicons name="pricetag-outline" size={16} color={COLORS.text}>
+            Category
+          </Ionicons>
         </Text>
 
         {/* Category Grid */}
@@ -212,17 +218,28 @@ const CreateScreen = () => {
                 }
                 style={styles.categoryIcon}
               ></Ionicons>
-              <Text style={[
-                styles.categoryButtonText,
-                selectdCategory===category.name && styles.categoryButtonTextActive]}
+              <Text
+                style={[
+                  styles.categoryButtonText,
+                  selectdCategory === category.name &&
+                    styles.categoryButtonTextActive,
+                ]}
               >
                 {category.name}
-                </Text>
+              </Text>
             </TouchableOpacity>
           ))}
-
         </View>
       </View>
+
+      {isLoading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator
+            size="large"
+            color={COLORS.primary}
+          ></ActivityIndicator>
+        </View>
+      )}
     </View>
   );
 };
